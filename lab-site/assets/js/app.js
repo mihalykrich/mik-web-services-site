@@ -56,6 +56,61 @@
         if (metaDesc) metaDesc.setAttribute('content', baseDesc || '');
       }
     }, { passive: true });
+
+    // Contact form handling (Formspree-compatible)
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const endpoint = contactForm.getAttribute('data-endpoint') || window.FORMSPREE_ENDPOINT || '';
+        const statusEl = contactForm.querySelector('.form-status');
+        const btn = contactForm.querySelector('button[type="submit"]');
+        function setStatus(msg, ok) {
+          if (!statusEl) return;
+          statusEl.textContent = msg;
+          statusEl.style.color = ok ? 'var(--neon)' : '#ff6b6b';
+        }
+        if (!endpoint) {
+          // Fallback: open mail client
+          const formData = new FormData(contactForm);
+          const subject = encodeURIComponent('Website enquiry from ' + (formData.get('name') || ''));
+          const body = encodeURIComponent(String(formData.get('message') || ''));
+          window.location.href = `mailto:info@mik-webservices.co.uk?subject=${subject}&body=${body}`;
+          setStatus('Opening your email client…', true);
+          return;
+        }
+        if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+        try {
+          const formData = new FormData(contactForm);
+          // Simple honeypot
+          if ((formData.get('company') || '').toString().trim() !== '') {
+            setStatus('Submission blocked.', false);
+            if (btn) { btn.disabled = false; btn.textContent = 'Send'; }
+            return;
+          }
+          const payload = {
+            name: String(formData.get('name') || ''),
+            email: String(formData.get('email') || ''),
+            message: String(formData.get('message') || ''),
+          };
+          const res = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          if (res.ok) {
+            setStatus('Thanks! We will get back to you shortly.', true);
+            contactForm.reset();
+          } else {
+            setStatus('Failed to send. Please email info@mik-webservices.co.uk.', false);
+          }
+        } catch (_err) {
+          setStatus('Network error. Please try again or email us directly.', false);
+        } finally {
+          if (btn) { btn.disabled = false; btn.textContent = 'Send'; }
+        }
+      });
+    }
   });
 
   // Derive accent colors from logo.png and set CSS variables
