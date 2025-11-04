@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="180" height="48" viewBox="0 0 180 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="0.5" y="0.5" width="179" height="47" rx="8" fill="#0F141B" stroke="#1C2330"/>
+  <g filter="url(#glow)">
+    <text x="16" y="32" font-family="Inter, Arial, sans-serif" font-weight="800" font-size="24" fill="#33FFD1">MIK</text>
+    <text x="70" y="32" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="24" fill="#7C5CFF">WS</text>
+  </g>
+  <defs>
+    <filter id="glow" x="0" y="0" width="180" height="48" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+    </filter>
+  </defs>
+  <!-- Replace this file with your real logo.svg when available -->
+</svg>
+
+
+
+

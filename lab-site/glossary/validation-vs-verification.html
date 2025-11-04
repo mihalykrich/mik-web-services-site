@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Validation vs verification in test software | MIK Web Services</title>
+    <meta name="description" content="Clear distinctions between validation and verification, with practical implications for test software.">
+    <link rel="canonical" href="https://mik-webservices.co.uk/glossary/validation-vs-verification.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Validation vs verification in test software">
+    <meta property="og:description" content="Clear distinctions, where they matter, and how to design processes around both.">
+    <meta property="og:image" content="../assets/img/og-cover.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Validation vs verification in test software">
+    <meta name="twitter:description" content="Clear distinctions, where they matter, and how to design processes around both.">
+    <meta name="twitter:image" content="../assets/img/og-cover.svg">
+    <link rel="stylesheet" href="../assets/css/main.css">
+  </head>
+  <body>
+    <main class="section">
+      <div class="container">
+        <p><a class="back-link" href="../index.html#glossary">← Back to Glossary</a></p>
+        <h1>🧠 Validation vs. Verification in Software Testing: What’s the Difference?</h1>
+        <p>When it comes to building reliable software, two words often come up in testing conversations: <strong>verification</strong> and <strong>validation</strong>. They sound similar — but they mean very different things. Understanding the distinction is key to ensuring that your software not only works right but also is the right thing to build.</p>
+
+        <h2>🔍 The Quick Definition</h2>
+        <ul>
+          <li><strong>Verification</strong>: Are we building the product right?</li>
+          <li><strong>Validation</strong>: Are we building the right product?</li>
+        </ul>
+        <p>These two questions capture the essence of how software quality is approached from two complementary angles.</p>
+
+        <h2>🧩 What Is Verification?</h2>
+        <p>Verification is about checking whether the product meets the specifications. It’s often a <em>static</em> process — reviewing, inspecting, and analyzing without necessarily executing code.</p>
+        <p>You verify to ensure that the software conforms to design documents, requirements, and standards.</p>
+        <h3>Common Verification Activities:</h3>
+        <ul>
+          <li>Requirements reviews</li>
+          <li>Design inspections</li>
+          <li>Code walkthroughs</li>
+          <li>Static analysis</li>
+          <li>Unit testing (checking code correctness)</li>
+        </ul>
+        <p><strong>Goal:</strong> Detect errors early before the product even runs.</p>
+        <p><strong>Example:</strong> A QA engineer checks that all requirements from the spec have corresponding test cases.</p>
+
+        <h2>🧪 What Is Validation?</h2>
+        <p>Validation is about checking whether the product meets the user’s needs. It’s a <em>dynamic</em> process — executing code and observing behavior.</p>
+        <p>You validate to confirm that the software does what it’s supposed to do in the real world.</p>
+        <h3>Common Validation Activities:</h3>
+        <ul>
+          <li>Integration testing</li>
+          <li>System testing</li>
+          <li>User acceptance testing (UAT)</li>
+          <li>Beta testing with real users</li>
+        </ul>
+        <p><strong>Goal:</strong> Ensure the product fulfills its intended purpose for users.</p>
+        <p><strong>Example:</strong> A tester runs the app to see if users can successfully complete a checkout process without confusion or bugs.</p>
+
+        <h2>⚖️ Verification vs. Validation: Side‑by‑Side</h2>
+        <table class="card" style="width:100%; border-spacing:0;">
+          <thead>
+            <tr>
+              <th style="text-align:left; padding:10px;">Aspect</th>
+              <th style="text-align:left; padding:10px;">Verification</th>
+              <th style="text-align:left; padding:10px;">Validation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="padding:10px;">Question Answered</td>
+              <td style="padding:10px;">Are we building the product right?</td>
+              <td style="padding:10px;">Are we building the right product?</td>
+            </tr>
+            <tr>
+              <td style="padding:10px;">Focus</td>
+              <td style="padding:10px;">Conformance to specs</td>
+              <td style="padding:10px;">Fulfillment of user needs</td>
+            </tr>
+            <tr>
+              <td style="padding:10px;">Type of Process</td>
+              <td style="padding:10px;">Static (no code execution)</td>
+              <td style="padding:10px;">Dynamic (code execution)</td>
+            </tr>
+            <tr>
+              <td style="padding:10px;">Performed By</td>
+              <td style="padding:10px;">Developers, QA engineers</td>
+              <td style="padding:10px;">Testers, end users, stakeholders</td>
+            </tr>
+            <tr>
+              <td style="padding:10px;">Typical Stage</td>
+              <td style="padding:10px;">Early in development</td>
+              <td style="padding:10px;">End of development cycle</td>
+            </tr>
+            <tr>
+              <td style="padding:10px;">Examples</td>
+              <td style="padding:10px;">Reviews, walkthroughs, static testing</td>
+              <td style="padding:10px;">System testing, UAT, beta testing</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>🚀 Why Both Matter</h2>
+        <p>Skipping verification can lead to a product full of bugs and design flaws. Skipping validation can lead to a perfectly functioning product that nobody wants to use.</p>
+        <p>Both are essential — verification ensures quality inside the product, and validation ensures relevance outside the product.</p>
+
+        <h2>💡 Real‑World Example</h2>
+        <p><strong>Scenario:</strong> A team building a mobile banking app.</p>
+        <p><strong>Verification:</strong> The developers check that the “Transfer Funds” function matches the technical specification. The code passes all unit tests. ✅</p>
+        <p><strong>Validation:</strong> During user testing, customers complain that the transfer process feels confusing and takes too long. ❌</p>
+        <p>Even though the software was “verified,” it wasn’t “validated.” Verification made sure it worked correctly; validation revealed whether it was right for users.</p>
+
+        <h2>🏁 Final Thoughts</h2>
+        <p>Verification and validation are two sides of the same quality coin. Together, they ensure that your software is not only technically sound but also genuinely useful.</p>
+        <ul>
+          <li>🔸 Verification prevents doing things wrong.</li>
+          <li>🔸 Validation ensures doing the right things.</li>
+        </ul>
+        <p>When both are done well, you deliver software that not only works — it works for people.</p>
+      </div>
+    </main>
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"Article",
+      "headline":"Validation vs verification in test software",
+      "author":{"@type":"Organization","name":"MIK Web Services"},
+      "publisher":{"@type":"Organization","name":"MIK Web Services","logo":{"@type":"ImageObject","url":"https://mik-webservices.co.uk/assets/img/logo.svg"}},
+      "datePublished":"2025-01-01",
+      "dateModified":"2025-01-01",
+      "image":"https://mik-webservices.co.uk/assets/img/og-cover.svg",
+      "mainEntityOfPage":"https://mik-webservices.co.uk/glossary/validation-vs-verification.html"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://mik-webservices.co.uk/#"},
+        {"@type":"ListItem","position":2,"name":"Glossary","item":"https://mik-webservices.co.uk/#glossary"},
+        {"@type":"ListItem","position":3,"name":"Validation vs verification in test software","item":"https://mik-webservices.co.uk/glossary/validation-vs-verification.html"}
+      ]
+    }
+    </script>
+  </body>
+  </html>
+
+

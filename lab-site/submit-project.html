@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Submit Your Project | MIK Web Services</title>
+    <meta name="description" content="Step-by-step project submission form for custom software development.">
+    <link rel="canonical" href="https://mik-webservices.co.uk/submit-project.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Submit Your Project | MIK Web Services">
+    <meta property="og:description" content="Tell us about your project requirements step-by-step.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/main.css">
+  </head>
+  <body>
+    <main class="section">
+      <div class="container" style="max-width: 800px;">
+        <p><a class="back-link" href="index.html#contact">← Back to Contact</a></p>
+        <h1>Submit Your Project</h1>
+        <p>Tell us about your requirements step-by-step. We'll review and get back to you within 24 hours.</p>
+
+        <form id="projectForm" class="wizard-form">
+          <div class="wizard-progress">
+            <div class="progress-step" data-step="1">
+              <span class="step-icon"><img src="assets/icons/wizard-contact.svg" alt="Contact"></span>
+              <span class="step-label">Contact</span>
+            </div>
+            <div class="progress-step" data-step="2">
+              <span class="step-icon"><img src="assets/icons/wizard-type.svg" alt="Type"></span>
+              <span class="step-label">Project Type</span>
+            </div>
+            <div class="progress-step" data-step="3">
+              <span class="step-icon"><img src="assets/icons/wizard-req.svg" alt="Requirements"></span>
+              <span class="step-label">Requirements</span>
+            </div>
+            <div class="progress-step" data-step="4">
+              <span class="step-icon"><img src="assets/icons/wizard-integrations.svg" alt="Integrations"></span>
+              <span class="step-label">Integrations</span>
+            </div>
+            <div class="progress-step" data-step="5">
+              <span class="step-icon"><img src="assets/icons/wizard-timeline.svg" alt="Timeline"></span>
+              <span class="step-label">Timeline</span>
+            </div>
+            <div class="progress-step" data-step="6">
+              <span class="step-icon"><img src="assets/icons/wizard-review.svg" alt="Review"></span>
+              <span class="step-label">Review</span>
+            </div>
+          </div>
+
+          <!-- Step 1: Contact -->
+          <div class="wizard-step active" data-step="1">
+            <h2>Contact Information</h2>
+            <label>
+              <span>Your Name *</span>
+              <input type="text" name="name" required placeholder="Jane Doe">
+            </label>
+            <label>
+              <span>Email *</span>
+              <input type="email" name="email" required placeholder="jane@company.com">
+            </label>
+            <label>
+              <span>Phone</span>
+              <input type="tel" name="phone" placeholder="+44 20 1234 5678">
+            </label>
+            <label>
+              <span>Company/Organization</span>
+              <input type="text" name="company" placeholder="Acme Labs Ltd">
+            </label>
+            <button type="button" class="btn primary wizard-next">Next →</button>
+          </div>
+
+          <!-- Step 2: Project Type -->
+          <div class="wizard-step" data-step="2">
+            <h2>What are you building?</h2>
+            <div class="radio-grid">
+              <label class="radio-card">
+                <input type="radio" name="project_type" value="hardware_test" required>
+                <span class="card-icon"><img src="assets/icons/wizard-type.svg" alt="Hardware"></span>
+                <span class="card-title">Hardware Test Application</span>
+                <span class="card-desc">Device I/O, operator UIs, calibration workflows, data capture</span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="project_type" value="management_system" required>
+                <span class="card-icon"><img src="assets/icons/wizard-type.svg" alt="Management"></span>
+                <span class="card-title">Company Management System</span>
+                <span class="card-desc">Custom CRM, approvals, inventory, quoting, workflows</span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="project_type" value="web_app" required>
+                <span class="card-icon"><img src="assets/icons/wizard-type.svg" alt="Web"></span>
+                <span class="card-title">Web Application</span>
+                <span class="card-desc">Modern frontend with robust backend, APIs, integrations</span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="project_type" value="python_app" required>
+                <span class="card-icon"><img src="assets/icons/wizard-type.svg" alt="Python"></span>
+                <span class="card-title">Python Application</span>
+                <span class="card-desc">Data processing, automation, research tools, services</span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="project_type" value="other" required>
+                <span class="card-icon"><img src="assets/icons/wizard-type.svg" alt="Other"></span>
+                <span class="card-title">Other</span>
+                <span class="card-desc">Describe your project below</span>
+              </label>
+            </div>
+            <label>
+              <span>Brief Project Description *</span>
+              <textarea name="description" rows="4" required placeholder="What problem are you solving? What should the software do?"></textarea>
+            </label>
+            <div class="wizard-actions">
+              <button type="button" class="btn ghost wizard-prev">← Previous</button>
+              <button type="button" class="btn primary wizard-next">Next →</button>
+            </div>
+          </div>
+
+          <!-- Step 3: Requirements -->
+          <div class="wizard-step" data-step="3">
+            <h2>Key Requirements</h2>
+            <label>
+              <span>Must-have features or capabilities *</span>
+              <textarea name="must_haves" rows="5" required placeholder="List the essential features (e.g., multi-user authentication, real-time data sync, report generation)"></textarea>
+            </label>
+            <label>
+              <span>Nice-to-have features</span>
+              <textarea name="nice_to_haves" rows="3" placeholder="Optional features you'd like if time/budget allows"></textarea>
+            </label>
+            <label>
+              <span>Target users and use cases *</span>
+              <textarea name="users" rows="3" required placeholder="Who will use this? What are their main tasks?"></textarea>
+            </label>
+            <label>
+              <span>Expected number of users</span>
+              <select name="user_count">
+                <option value="">Select range</option>
+                <option value="1-10">1-10 users</option>
+                <option value="11-50">11-50 users</option>
+                <option value="51-200">51-200 users</option>
+                <option value="200+">200+ users</option>
+              </select>
+            </label>
+            <div class="wizard-actions">
+              <button type="button" class="btn ghost wizard-prev">← Previous</button>
+              <button type="button" class="btn primary wizard-next">Next →</button>
+            </div>
+          </div>
+
+          <!-- Step 4: Integrations -->
+          <div class="wizard-step" data-step="4">
+            <h2>Integrations & Systems</h2>
+            <p>What existing systems do you need to connect with?</p>
+            <div class="checkbox-grid">
+              <label class="checkbox-card">
+                <input type="checkbox" name="integrations" value="accounting">
+                <span>💰 Accounting software (Xero, QuickBooks, Sage)</span>
+              </label>
+              <label class="checkbox-card">
+                <input type="checkbox" name="integrations" value="email">
+                <span>📧 Email (SMTP, IMAP, OAuth)</span>
+              </label>
+              <label class="checkbox-card">
+                <input type="checkbox" name="integrations" value="auth">
+                <span>🔐 Single Sign-On (SSO, LDAP, OAuth2)</span>
+              </label>
+              <label class="checkbox-card">
+                <input type="checkbox" name="integrations" value="crm">
+                <span>📞 CRM systems (Salesforce, HubSpot, custom)</span>
+              </label>
+              <label class="checkbox-card">
+                <input type="checkbox" name="integrations" value="inventory">
+                <span>📦 Inventory/ERP systems</span>
+              </label>
+              <label class="checkbox-card">
+                <input type="checkbox" name="integrations" value="lab_devices">
+                <span>🔬 Lab equipment/devices (specify below)</span>
+              </label>
+              <label class="checkbox-card">
+                <input type="checkbox" name="integrations" value="apis">
+                <span>🔌 REST/GraphQL APIs</span>
+              </label>
+              <label class="checkbox-card">
+                <input type="checkbox" name="integrations" value="none">
+                <span>✨ Standalone system (no integrations needed)</span>
+              </label>
+            </div>
+            <label>
+              <span>Integration details</span>
+              <textarea name="integration_details" rows="3" placeholder="Specify API versions, device models, protocols, or any constraints"></textarea>
+            </label>
+            <div class="wizard-actions">
+              <button type="button" class="btn ghost wizard-prev">← Previous</button>
+              <button type="button" class="btn primary wizard-next">Next →</button>
+            </div>
+          </div>
+
+          <!-- Step 5: Timeline -->
+          <div class="wizard-step" data-step="5">
+            <h2>Timeline & Budget</h2>
+            <label>
+              <span>Desired completion date</span>
+              <input type="date" name="deadline">
+            </label>
+            <label>
+              <span>Is this timeframe flexible? *</span>
+              <select name="timeline_flexible" required>
+                <option value="">Select</option>
+                <option value="strict">Strict deadline (cannot move)</option>
+                <option value="somewhat">Somewhat flexible (±2 weeks)</option>
+                <option value="flexible">Flexible (quality over speed)</option>
+              </select>
+            </label>
+            <label>
+              <span>Budget range</span>
+              <select name="budget">
+                <option value="">Prefer not to say</option>
+                <option value="under-5k">Under £5,000</option>
+                <option value="5k-15k">£5,000 - £15,000</option>
+                <option value="15k-30k">£15,000 - £30,000</option>
+                <option value="30k-50k">£30,000 - £50,000</option>
+                <option value="50k+">£50,000+</option>
+              </select>
+            </label>
+            <label>
+              <span>Preference for delivery approach</span>
+              <select name="delivery">
+                <option value="">No preference</option>
+                <option value="fixed">Fixed-scope, fixed-price</option>
+                <option value="iterative">Iterative milestones</option>
+                <option value="agile">Agile sprints</option>
+              </select>
+            </label>
+            <div class="wizard-actions">
+              <button type="button" class="btn ghost wizard-prev">← Previous</button>
+              <button type="button" class="btn primary wizard-next">Next →</button>
+            </div>
+          </div>
+
+          <!-- Step 6: Review & Submit -->
+          <div class="wizard-step" data-step="6">
+            <h2>Review & Submit</h2>
+            <div id="reviewSummary" class="review-summary"></div>
+            <label>
+              <span>Additional notes or questions</span>
+              <textarea name="notes" rows="4" placeholder="Anything else we should know?"></textarea>
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" name="nda" value="yes">
+              <span>We may require an NDA. Is this acceptable?</span>
+            </label>
+            <div class="wizard-actions">
+              <button type="button" class="btn ghost wizard-prev">← Previous</button>
+              <button type="submit" class="btn primary">Submit Project Request</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+    <script src="assets/js/app.js" defer></script>
+    <script src="assets/js/form-wizard.js" defer></script>
+  </body>
+  </html>
+

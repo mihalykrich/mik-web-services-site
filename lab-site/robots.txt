@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mik-webservices.co.uk/sitemap.xml
+
+
+
+

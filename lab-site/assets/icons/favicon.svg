@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="12" fill="#0B0F14"/>
+  <g filter="url(#g)">
+    <path d="M12 42 L20 22 L28 42 Z" fill="#33FFD1"/>
+    <path d="M36 42 L44 22 L52 42 Z" fill="#7C5CFF"/>
+  </g>
+  <defs>
+    <filter id="g">
+      <feGaussianBlur stdDeviation="0.6"/>
+    </filter>
+  </defs>
+  <!-- Simple abstract mark using brand neon colors -->
+  </svg>
+
+
+

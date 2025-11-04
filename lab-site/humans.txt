@@ -1,0 +1,12 @@
+/* TEAM */
+Developer: MIK Web Services
+Location: Cambridge, UK
+Contact: info@mik-webservices.co.uk | +44 1223 941613
+
+/* SITE */
+Standards: HTML5, CSS3, JS
+Tools: Inter font, lax.js
+Hosting: TBD
+
+
+
