@@ -82,12 +82,44 @@
     `;
   }
 
+  // Validate step fields
+  function validateStep(stepNum) {
+    const step = document.querySelector(`.wizard-step[data-step="${stepNum}"]`);
+    if (!step) return false;
+    const requiredInputs = step.querySelectorAll('input[required], select[required], textarea[required]');
+    let isValid = true;
+    requiredInputs.forEach(input => {
+      if (!input.value.trim()) {
+        isValid = false;
+        input.setCustomValidity('This field is required');
+      } else {
+        input.setCustomValidity('');
+      }
+      if (!input.checkValidity()) {
+        isValid = false;
+      }
+    });
+    // Special check for radio groups (at least one must be selected)
+    const radioGroups = step.querySelectorAll('input[type="radio"][required]');
+    if (radioGroups.length > 0) {
+      const groupName = radioGroups[0].name;
+      const groupChecked = step.querySelector(`input[type="radio"][name="${groupName}"]:checked`);
+      if (!groupChecked) {
+        isValid = false;
+        radioGroups[0].setCustomValidity('Please select an option');
+      } else {
+        radioGroups.forEach(r => r.setCustomValidity(''));
+      }
+    }
+    return isValid;
+  }
+
   // Navigation handlers
   form.addEventListener('click', (e) => {
     if (e.target.classList.contains('wizard-next')) {
       e.preventDefault();
       const step = document.querySelector(`.wizard-step[data-step="${currentStep}"]`);
-      if (step && step.checkValidity()) {
+      if (step && validateStep(currentStep)) {
         collectStepData(currentStep);
         if (currentStep < totalSteps) {
           currentStep++;
@@ -95,7 +127,12 @@
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       } else {
-        step.reportValidity();
+        // Trigger validation UI
+        const firstInvalid = step.querySelector('input:invalid, select:invalid, textarea:invalid');
+        if (firstInvalid) {
+          firstInvalid.focus();
+          firstInvalid.reportValidity();
+        }
       }
     }
     
