@@ -111,6 +111,22 @@
         }
       });
     }
+
+    // Toggle detailed project form
+    const toggle = document.getElementById('toggleDetailed');
+    const detailedBox = document.getElementById('detailedForm');
+    const simpleForm = document.querySelector('.contact-form');
+    if (toggle && detailedBox && simpleForm) {
+      toggle.addEventListener('change', () => {
+        if (toggle.checked) {
+          detailedBox.hidden = false;
+          simpleForm.style.display = 'none';
+        } else {
+          detailedBox.hidden = true;
+          simpleForm.style.display = '';
+        }
+      });
+    }
   });
 
   // Derive accent colors from logo.png and set CSS variables

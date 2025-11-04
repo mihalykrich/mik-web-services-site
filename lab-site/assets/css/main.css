@@ -95,6 +95,13 @@ body {
 .contact label { display: grid; gap: 8px; }
 .contact input, .contact textarea { background: rgba(15,20,27,0.7); border: 1px solid var(--border); border-radius: 10px; padding: 12px; color: var(--text); }
 .contact input::placeholder, .contact textarea::placeholder { color: #6b7380; }
+.toggle { display: inline-flex; align-items: center; gap: 10px; background: rgba(18,24,33,0.6); border: 1px solid var(--border); border-radius: 999px; padding: 8px 12px; box-shadow: var(--shadow); }
+.toggle input { appearance: none; width: 42px; height: 24px; background: #1c2330; border: 1px solid var(--border); border-radius: 999px; position: relative; outline: none; cursor: pointer; }
+.toggle input::after { content: ''; position: absolute; left: 3px; top: 3px; width: 18px; height: 18px; border-radius: 50%; background: #aab2c0; transition: transform 160ms ease, background 160ms ease; }
+.toggle input:checked { background: linear-gradient(90deg, var(--neon), var(--neon-2)); border-color: transparent; }
+.toggle input:checked::after { background: #0b0f14; transform: translateX(18px); }
+.detailed-form { margin-top: 16px; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; background: rgba(18,24,33,0.6); box-shadow: var(--shadow); }
+.detailed-form iframe { width: 100%; height: 900px; border: 0; display: block; }
 
 .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .faq-item { background: rgba(18,24,33,0.6); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
