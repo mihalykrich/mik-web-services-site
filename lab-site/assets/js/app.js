@@ -70,13 +70,10 @@
           statusEl.textContent = msg;
           statusEl.style.color = ok ? 'var(--neon)' : '#ff6b6b';
         }
-        if (!endpoint) {
-          // Fallback: open mail client
-          const formData = new FormData(contactForm);
-          const subject = encodeURIComponent('Website enquiry from ' + (formData.get('name') || ''));
-          const body = encodeURIComponent(String(formData.get('message') || ''));
-          window.location.href = `mailto:info@mik-webservices.co.uk?subject=${subject}&body=${body}`;
-          setStatus('Opening your email client…', true);
+        if (!endpoint || endpoint === 'noop') {
+          // Site-only notification (no network request)
+          setStatus('Thanks! Your message has been recorded.', true);
+          contactForm.reset();
           return;
         }
         if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
