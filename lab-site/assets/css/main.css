@@ -95,6 +95,12 @@ body {
 .contact label { display: grid; gap: 8px; }
 .contact input, .contact textarea { background: rgba(15,20,27,0.7); border: 1px solid var(--border); border-radius: 10px; padding: 12px; color: var(--text); }
 .contact input::placeholder, .contact textarea::placeholder { color: #6b7380; }
+.btn-copy { position: relative; width: 48px; height: 48px; padding: 0; background: rgba(18,24,33,0.6); border: 1px solid var(--border); border-radius: 10px; color: var(--text); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 140ms ease; }
+.btn-copy:hover { border-color: var(--neon); background: rgba(51,255,209,0.1); transform: translateY(-1px); }
+.btn-copy:active { transform: translateY(0); }
+.btn-copy svg { display: block; }
+.btn-copy .copy-feedback { position: absolute; top: -40px; left: 50%; transform: translateX(-50%); background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 6px 10px; font-size: 12px; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 200ms ease; }
+.btn-copy.copied .copy-feedback { opacity: 1; }
 .switch { display: inline-flex; align-items: center; gap: 12px; padding: 8px 12px; background: rgba(18,24,33,0.6); border: 1px solid var(--border); border-radius: 999px; box-shadow: var(--shadow); }
 .switch input { display: none; }
 .switch .slider { position: relative; width: 46px; height: 26px; border-radius: 999px; background: #1c2330; border: 1px solid var(--border); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03); transition: background 160ms ease; }

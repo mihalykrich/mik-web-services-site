@@ -221,10 +221,17 @@
               Drop us an email. We'll respond within one business day.
             </p>
           </div>
-          <div data-reveal>
+          <div data-reveal style="display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap;">
             <a href="mailto:info@mik-webservices.co.uk" class="btn primary" style="font-size: 18px; padding: 16px 32px; display: inline-block; text-decoration: none;">
               info@mik-webservices.co.uk
             </a>
+            <button id="copyEmailBtn" class="btn-copy" title="Copy email address" aria-label="Copy email address to clipboard">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span class="copy-feedback">Copied!</span>
+            </button>
           </div>
         </div>
       </section>

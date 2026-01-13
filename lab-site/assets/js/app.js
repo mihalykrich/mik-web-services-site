@@ -109,6 +109,33 @@
       });
     }
 
+    // Copy email to clipboard
+    const copyBtn = document.getElementById('copyEmailBtn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', async () => {
+        const email = 'info@mik-webservices.co.uk';
+        try {
+          await navigator.clipboard.writeText(email);
+          copyBtn.classList.add('copied');
+          setTimeout(() => copyBtn.classList.remove('copied'), 2000);
+        } catch (err) {
+          // Fallback for older browsers
+          const textarea = document.createElement('textarea');
+          textarea.value = email;
+          textarea.style.position = 'fixed';
+          textarea.style.opacity = '0';
+          document.body.appendChild(textarea);
+          textarea.select();
+          try {
+            document.execCommand('copy');
+            copyBtn.classList.add('copied');
+            setTimeout(() => copyBtn.classList.remove('copied'), 2000);
+          } catch (e) {}
+          document.body.removeChild(textarea);
+        }
+      });
+    }
+
   });
 
   // Derive accent colors from logo.png and set CSS variables
