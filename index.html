@@ -212,39 +212,21 @@
       </section>
 
       <section id="contact" class="section contact">
-        <div class="container">
+        <div class="container" style="max-width: 700px; text-align: center;">
           <h2 data-reveal>Start a Project</h2>
-          <div data-reveal style="display:flex; justify-content:center; margin-bottom:16px;">
-            <label class="switch" title="Toggle detailed project form">
-              <input type="checkbox" id="toggleDetailed">
-              <span class="slider" aria-hidden="true"></span>
-              <span class="switch-label">Use detailed project form</span>
-            </label>
+          <div data-reveal style="margin-bottom: 32px;">
+            <p style="font-size: 18px; color: var(--muted); line-height: 1.7; margin: 0 0 24px;">
+              We don't use contact forms. Every project starts with a real conversation—understanding your goals, constraints, and what success looks like. That's hard to capture in a form.
+            </p>
+            <p style="font-size: 16px; color: var(--text); line-height: 1.6;">
+              Drop us an email. We'll respond within one business day.
+            </p>
           </div>
-          <div id="detailedForm" class="detailed-form" hidden>
-            <iframe src="submit-project.html" loading="lazy" title="Detailed project form"></iframe>
+          <div data-reveal>
+            <a href="mailto:info@mik-webservices.co.uk" class="btn primary" style="font-size: 18px; padding: 16px 32px; display: inline-block; text-decoration: none;">
+              info@mik-webservices.co.uk
+            </a>
           </div>
-          <form class="contact-form" data-reveal data-endpoint="" novalidate>
-            <div class="row">
-              <label>
-                <span>Your Name</span>
-                <input type="text" name="name" placeholder="Jane Doe" required>
-              </label>
-              <label>
-                <span>Email</span>
-                <input type="email" name="email" placeholder="jane@company.com" required>
-              </label>
-            </div>
-            <label>
-              <span>What are you building?</span>
-              <textarea name="message" rows="5" placeholder="Briefly describe your project and goals" required></textarea>
-            </label>
-            <div style="display:none">
-              <label>Company <input type="text" name="company" tabindex="-1" autocomplete="off"></label>
-            </div>
-            <button class="btn primary" type="submit">Send</button>
-            <p class="form-status" aria-live="polite" style="margin-top:12px;"></p>
-          </form>
         </div>
       </section>
     </main>
