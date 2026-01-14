@@ -183,8 +183,10 @@
             </p>
             <a href="#contact" class="btn primary">Talk about a similar system</a>
           </div>
-          <div class="case-visual lax" data-reveal data-lax-translate-y="vh 100, 0 0" data-lax-opacity="vh 0, 0 1" aria-hidden="true">
-            <img src="assets/img/electronic_company_management.png" alt="Screenshot of bespoke electronics rework and returns management dashboard" class="case-image">
+          <div class="case-visual lax" data-reveal data-lax-translate-y="vh 100, 0 0" data-lax-opacity="vh 0, 0 1">
+            <button class="case-image-trigger" type="button" data-modal-image="assets/img/electronic_company_management.png" aria-label="Enlarge screenshot of rework and returns management dashboard">
+              <img src="assets/img/electronic_company_management.png" alt="Screenshot of bespoke electronics rework and returns management dashboard" class="case-image">
+            </button>
           </div>
         </div>
       </section>
@@ -263,6 +265,16 @@
         </div>
       </section>
     </main>
+
+    <div id="imageModal" class="image-modal" aria-hidden="true">
+      <button class="image-modal-backdrop" type="button" data-modal-close></button>
+      <div class="image-modal-dialog" role="dialog" aria-modal="true" aria-label="Expanded screenshot">
+        <button class="image-modal-close" type="button" data-modal-close aria-label="Close image">
+          ×
+        </button>
+        <img src="" alt="" class="image-modal-img">
+      </div>
+    </div>
 
     <footer class="site-footer">
       <div class="container">

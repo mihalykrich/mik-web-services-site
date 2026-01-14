@@ -136,6 +136,41 @@
       });
     }
 
+    // Image modal (case study screenshot)
+    const modal = document.getElementById('imageModal');
+    const modalImg = modal ? modal.querySelector('.image-modal-img') : null;
+    const modalTriggers = document.querySelectorAll('[data-modal-image]');
+    const modalCloseEls = modal ? modal.querySelectorAll('[data-modal-close]') : [];
+    function openModal(src, alt) {
+      if (!modal || !modalImg) return;
+      modalImg.src = src;
+      modalImg.alt = alt || '';
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+    function closeModal() {
+      if (!modal || !modalImg) return;
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      modalImg.src = '';
+    }
+    if (modal && modalImg && modalTriggers.length) {
+      modalTriggers.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const src = btn.getAttribute('data-modal-image') || '';
+          const img = btn.querySelector('img');
+          const alt = img ? img.alt : '';
+          openModal(src, alt);
+        });
+      });
+      modalCloseEls.forEach(el => {
+        el.addEventListener('click', closeModal);
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+      });
+    }
+
   });
 
   // Derive accent colors from logo.png and set CSS variables
