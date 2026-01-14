@@ -160,6 +160,11 @@ body {
 .review-summary p { margin: 6px 0; color: var(--muted); }
 .review-summary strong { color: var(--text); }
 
+.case-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 32px; align-items: center; }
+.case-copy ul { margin: 12px 0 16px; padding-left: 18px; color: var(--muted); }
+.case-copy li + li { margin-top: 4px; }
+.case-image { width: 100%; max-width: 520px; border-radius: 14px; border: 1px solid var(--border); box-shadow: var(--shadow); display: block; }
+
 .site-footer { border-top: 1px solid var(--border); padding: 24px 0; color: var(--muted); }
 
 [data-reveal] { opacity: 0; transform: translateY(12px); transition: opacity 500ms ease, transform 500ms ease; }
@@ -184,6 +189,8 @@ body {
   .checkbox-grid { grid-template-columns: 1fr; }
   .wizard-actions { flex-direction: column-reverse; }
   .wizard-actions .btn { width: 100%; }
+  .case-grid { grid-template-columns: 1fr; }
+  .case-visual { order: -1; }
 }
 
 
