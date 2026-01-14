@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Electronics rework &amp; returns management system | MIK Web Services</title>
+    <meta name="description" content="Case study: a bespoke Raspberry&nbsp;Pi‑hosted rework and returns management system for a PCB manufacturer, replacing paper red tags and spreadsheets with a searchable, auditable workflow.">
+    <link rel="canonical" href="https://mik-webservices.co.uk/blog/electronics-rework-returns-system.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Electronics rework &amp; returns management system">
+    <meta property="og:description" content="Bespoke rework and returns management system for an electronics manufacturer – from red‑tag creation to reporting and audit‑ready history.">
+    <meta property="og:image" content="../assets/img/og-cover.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Electronics rework &amp; returns management system">
+    <meta name="twitter:description" content="Bespoke rework and returns management system for an electronics manufacturer – from red‑tag creation to reporting and audit‑ready history.">
+    <meta name="twitter:image" content="../assets/img/og-cover.svg">
+    <link rel="stylesheet" href="../assets/css/main.css">
+  </head>
+  <body>
+    <main class="section">
+      <div class="container">
+        <p><a class="back-link" href="../index.html#insights">← Back to Insights</a></p>
+        <h1>Electronics rework &amp; returns management system</h1>
+        <p>
+          This case study covers a bespoke rework and returns management system we built for an electronics
+          manufacturer. The application runs on a Raspberry&nbsp;Pi and is accessed from standard browsers on the shop
+          floor, replacing paper red tags, ad‑hoc spreadsheets, and email chains with a single, structured workflow.
+        </p>
+
+        <h2>1. High‑level description</h2>
+        <p>
+          The system is a dedicated rework and returns management tool for a PCB manufacturing environment. It provides
+          one place to log faults, plan rework, print labels, track locations, and analyse performance over time.
+        </p>
+        <p>
+          It is not an off‑the‑shelf product; it is an example of a tailored digital workflow that can be adapted to a
+          customer’s own processes, terminology, and data.
+        </p>
+
+        <h2>2. Core functional areas</h2>
+
+        <h3>2.1 Red‑tag creation &amp; label printing</h3>
+        <p>
+          Operators create rework / red‑tag records directly at the line. The form captures job/RMA number, serial
+          number (including support for non‑serialised assemblies), customer, part number, revision and date.
+        </p>
+        <ul>
+          <li>Cascading selection for Customer → Part number → Revision, driven by the customer’s BOM data.</li>
+          <li>
+            Component‑level table: designator, component part number, description and action (Replace, Reflow,
+            Remove short, FW update, PTO, etc.).
+          </li>
+          <li>Intelligent lookup of component data to minimise manual typing and errors.</li>
+          <li>Repair difficulty / repair type fields for later analysis (e.g. Basic / Advanced, Conventional / SMA).</li>
+          <li>Free‑text fault description with character limit and live remaining‑characters counter.</li>
+          <li>Option to include or exclude the description on the printed label.</li>
+          <li>Named user selection so every red tag is tied to a specific operator.</li>
+        </ul>
+        <p>
+          Submitting the form generates a print‑ready PDF label and stores the record in the database. PDFs are archived
+          in structured folders for traceability.
+        </p>
+
+        <h3>2.2 Awaiting repair queue</h3>
+        <p>
+          A dedicated “Awaiting repair” view shows all units that have been logged but not yet completed. Repair staff
+          can see their workload, sort/filter jobs, and pick the next unit to work on, reducing the risk of lost boards
+          and hidden WIP.
+        </p>
+
+        <h3>2.3 History &amp; search</h3>
+        <p>
+          Full rework history is searchable by job, serial, customer, part number, date range, user and more. This acts
+          as a complete audit trail for customer returns analysis, 8D reports, and external audits.
+        </p>
+
+        <h3>2.4 Part search &amp; statistics</h3>
+        <ul>
+          <li>Part search quickly finds all rework activity involving a particular component or part number.</li>
+          <li>
+            Job statistics calculate rework rates per job (e.g. “X out of Y boards needed rework”), giving insight into
+            process capability and first‑pass yield.
+          </li>
+        </ul>
+
+        <h3>2.5 Location tracking &amp; QR codes</h3>
+        <p>
+          The system tracks where units physically are within the factory – shelves, repair benches, quarantine racks,
+          RMA cages and more. It generates QR codes for locations so a unit’s tag can be scanned and tied to a specific
+          location, dramatically reducing “lost” units.
+        </p>
+
+        <h3>2.6 RMA booking‑in and BOM maintenance</h3>
+        <ul>
+          <li>Customer RMAs are logged as they arrive and flow into the same tracking and reporting pipeline.</li>
+          <li>
+            BOM import/maintenance keeps the system’s configuration data synchronised with production reality so
+            dropdowns and reports always reflect current products and revisions.
+          </li>
+        </ul>
+
+        <h3>2.7 News feed &amp; status monitoring</h3>
+        <p>
+          A simple news feed allows production or quality to publish shop‑floor alerts directly inside the app.
+          Supporting endpoints expose counts and health metrics (CPU, memory, disk, network) from the Raspberry&nbsp;Pi
+          host for quick diagnostics.
+        </p>
+
+        <h2>3. Typical end‑to‑end workflow</h2>
+        <ol>
+          <li>Fault is found on the shop floor and a red‑tag record is created from any browser.</li>
+          <li>A print‑ready PDF label is generated and attached to the unit.</li>
+          <li>
+            The unit moves into the “Awaiting repair” queue and to a physical location (optionally with QR‑coded
+            shelving).
+          </li>
+          <li>
+            Technicians carry out the listed actions, update status (repaired / scrapped / etc.), and the system
+            updates counts and history.
+          </li>
+          <li>
+            Quality and engineering teams use reports and statistics to understand rework rates, common failure modes
+            and opportunities for improvement.
+          </li>
+        </ol>
+
+        <h2>4. Business benefits</h2>
+
+        <h3>4.1 Efficiency &amp; throughput</h3>
+        <ul>
+          <li>Centralised logging eliminates duplicate data entry, paper forms and scattered spreadsheets.</li>
+          <li>Technicians receive complete, standardised instructions with every unit.</li>
+          <li>
+            Queues and QR‑coded locations shorten turnaround time and avoid the cost of lost or forgotten boards.
+          </li>
+        </ul>
+
+        <h3>4.2 Quality, traceability &amp; audits</h3>
+        <ul>
+          <li>
+            Detailed, searchable history by part, customer, job, revision and failure type makes it easy to spot
+            patterns.
+          </li>
+          <li>
+            Red‑tag PDFs and digital records provide robust documentation for ISO/TS/IATF and customer audits.
+          </li>
+        </ul>
+
+        <h3>4.3 Data‑driven management</h3>
+        <ul>
+          <li>Job statistics and summary reports provide KPIs for rework, scrap and common failure modes.</li>
+          <li>Hard data supports CAPA and 8D investigations, supplier feedback and design changes.</li>
+        </ul>
+
+        <h3>4.4 Deployment model</h3>
+        <ul>
+          <li>Raspberry&nbsp;Pi‑hosted, using standard web technologies – no heavy infrastructure required.</li>
+          <li>
+            Fully local hosting suits sites with strict data policies or weak internet connectivity, but the same
+            architecture can scale to server‑class machines or integrate with ERP/MES.
+          </li>
+        </ul>
+
+        <h2>5. Adapting this pattern for other manufacturers</h2>
+        <p>
+          This system was built around one customer’s processes, terminology and BOM structure, but the pattern is
+          reusable. Fields, workflows and reports can be adapted to different product lines (PCBs, sub‑assemblies,
+          finished systems) or to specific regulatory requirements.
+        </p>
+        <p>
+          If you run a lab or factory where boards, modules or instruments are still tracked with paper tags and
+          spreadsheets, we can help design a similar system – or a fresh workflow tailored to your environment.
+        </p>
+        <p>
+          Want to explore a rework and returns system for your site? <a class="back-link" href="../index.html#contact">Start a project</a>.
+        </p>
+      </div>
+    </main>
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"BlogPosting",
+      "headline":"Electronics rework & returns management system",
+      "author":{"@type":"Organization","name":"MIK Web Services"},
+      "publisher":{"@type":"Organization","name":"MIK Web Services","logo":{"@type":"ImageObject","url":"https://mik-webservices.co.uk/assets/img/logo.svg"}},
+      "datePublished":"2025-01-01",
+      "dateModified":"2025-01-01",
+      "image":"https://mik-webservices.co.uk/assets/img/og-cover.svg",
+      "mainEntityOfPage":"https://mik-webservices.co.uk/blog/electronics-rework-returns-system.html"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://mik-webservices.co.uk/#"},
+        {"@type":"ListItem","position":2,"name":"Insights","item":"https://mik-webservices.co.uk/#insights"},
+        {"@type":"ListItem","position":3,"name":"Electronics rework & returns management system","item":"https://mik-webservices.co.uk/blog/electronics-rework-returns-system.html"}
+      ]
+    }
+    </script>
+  </body>
+  </html>
+
+
